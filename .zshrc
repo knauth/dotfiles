@@ -1,4 +1,4 @@
-# .zshrc of Christopher Knauth
+# .zshrc of github.com/knauth
 # Search and replace '[you]' (no quotes) with your username
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
