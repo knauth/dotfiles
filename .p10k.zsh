@@ -1,4 +1,4 @@
-# powerlevel10k config of Christopher Knauth
+# powerlevel10k config for github.com/knauth
 # Here's what it looks like:
 # 
 # Should be a drop-in, but I haven't tested this. Make a backup of your existing file!
