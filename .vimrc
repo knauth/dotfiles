@@ -1,10 +1,27 @@
+set nocompatible
 syntax on
-noremap j h 
-"preferred keybindings
-noremap k j
-noremap l k
-noremap ; l
+filetype plugin on
+"noremap j h
+"noremap k j
+"noremap l k
+"noremap ; l
 
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'valloric/youcompleteme'
+Plug 'vim-airline/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+set list
 
 packadd! dracula
 colorscheme dracula " a colorscheme
@@ -27,6 +44,3 @@ set hlsearch "highlight matches
 "search down into sub folders (recursive searc)
 set path+=** "provides tab-completion for all file-related tasks
 set wildmenu "display all matching files when using tab-complete
-
-hi Normal guibg=NONE ctermbg=NONE 
-"transparent background
