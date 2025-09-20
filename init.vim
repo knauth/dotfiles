@@ -1,6 +1,10 @@
 syntax on
 filetype plugin indent on
 
+packadd! dracula
+colorscheme dracula " a colorscheme
+set background=dark
+
 let mapleader =";"
 
 call plug#begin()
@@ -8,10 +12,13 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'tpope/vim-sensible'
-  "Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
   Plug 'jpalardy/vim-slime', { 'for': 'python' }
   Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
   Plug 'lervag/vimtex'
+  Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+  Plug 'roxma/nvim-yarp', v:version >= 800 && !has('nvim') ? {} : { 'on': [], 'for': [] }
+  Plug 'roxma/vim-hug-neovim-rpc', v:version >= 800 && !has('nvim') ? {} : { 'on': [], 'for': [] }
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   Plug 'nvim-lua/plenary.nvim'	
   Plug 'BurntSushi/ripgrep'
@@ -24,16 +31,7 @@ call plug#begin()
   Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'Mofiqul/dracula.nvim'
-  Plug 'NeogitOrg/neogit'
 call plug#end()
-
-colorscheme dracula " a colorscheme
-
-lua << EOF
-local neogit = require('neogit')
-neogit.setup {}
-EOF
 
 lua require('notebook').setup()
 lua lsp = require 'lspconfig'
@@ -149,7 +147,7 @@ set path+=** "provides tab-completion for all file-related tasks
 set wildmenu "display all matching files when using tab-complete
 
 "transparent background
-"hi Normal guibg=NONE ctermbg=NONE 
+hi Normal guibg=NONE ctermbg=NONE 
 
 nnoremap <leader>tt <cmd>Telescope<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
